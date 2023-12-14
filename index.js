@@ -74,6 +74,10 @@ module.exports = {
         resolve();
       }
     }),
+  cpAsync: (src, dest) =>
+    new Promise((resolve, reject) => {
+      FS.cp(src, dest, err => (err ? reject(err) : resolve()));
+    }),
   // 获取本地IPV4
   getLocalIP: () => {
     const os = require('os');
